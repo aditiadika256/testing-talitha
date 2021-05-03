@@ -55,7 +55,7 @@ if(isset($_POST['submit'])&&!empty($_POST['submit'])){
             </div>
           <br>
 
-          <button class="btn btn-theme btn-block" type="submit" name="submit"><i class="fa fa-lock"></i>  LOGIN</button>
+          <input type="submit" name="submit" class="btn btn-primary" value="Submit">
           <hr>
 
           <div class="registration">
