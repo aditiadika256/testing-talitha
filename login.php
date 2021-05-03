@@ -9,7 +9,7 @@ if(isset($_POST['submit'])&&!empty($_POST['submit'])){
     $login_check = pg_num_rows($data);
     if($login_check > 0){ 
         $_SESSION['mahasiswa']=$username;
-        echo "<script> alert('Login sukses'); </script>";
+        header("Location: about.php");
          
     }
     else{
