@@ -9,7 +9,9 @@ if(isset($_POST['login'])&&!empty($_POST['login'])){
     $login_check = pg_num_rows($data);
     if($login_check > 0){ 
         $_SESSION['mahasiswa']=$username;
-        echo "<script> location= 'indexnelayan.php'; </script>";
+        echo "<script> 
+        alert('Username benar');
+        </script>";
          
     }
     else{
