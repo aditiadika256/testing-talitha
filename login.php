@@ -4,7 +4,7 @@ session_start();
 if(isset($_POST['submit'])&&!empty($_POST['submit'])){
     $username = $_POST['username'];
     $hashpassword = md5($_POST['password']);
-    $sql ="select * from mahasiswa where username = $username and password ='".$hashpassword."'";
+    $sql ="select * from mahasiswa where username = '".$username."' and password ='".$hashpassword."'";
     $data = pg_query($conn,$sql); 
     $login_check = pg_num_rows($data);
     if($login_check > 0){ 
@@ -13,7 +13,9 @@ if(isset($_POST['submit'])&&!empty($_POST['submit'])){
          
     }
     else{
-        echo "Username password salah";
+        echo "<script>
+        alert('Username atau password salah');
+        </script>";
         
     }
 }
@@ -54,7 +56,7 @@ if(isset($_POST['submit'])&&!empty($_POST['submit'])){
       <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
     </div>
      
-    <input type="submit" name="submit" class="btn btn-primary" value="Submit">
+    <input type="submit" name="submit" class="btn btn-primary" value="Login">
 
     <div class="form-group">
     <a href="registration.php">Click here to register</a>
