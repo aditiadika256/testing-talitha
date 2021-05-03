@@ -2,7 +2,7 @@
 <?php
 
 require 'connection.php';
-
+session_start();
 if(isset($_POST['submit'])&&!empty($_POST['submit'])){
     $username = $_POST['username'];
     $hashpassword = md5($_POST['password']);
