@@ -1,7 +1,7 @@
 <?php
 require 'connection.php';
 session_start();
-if(isset($_POST['login'])&&!empty($_POST['login'])){
+if(isset($_POST['submit'])&&!empty($_POST['submit'])){
     $username = $_POST['username'];
     $hashpassword = md5($_POST['password']);
     $sql ="select *from mahasiswa where username = $username and password ='".$hashpassword."'";
@@ -9,13 +9,11 @@ if(isset($_POST['login'])&&!empty($_POST['login'])){
     $login_check = pg_num_rows($data);
     if($login_check > 0){ 
         $_SESSION['mahasiswa']=$username;
-        echo "<script> location= 'about.php'; </script>";
+        echo "Username password benar";
          
     }
     else{
-        echo "<script>
-        alert('Username atau password salah');
-        </script>";
+        echo "Username password salah";
         
     }
 }
@@ -57,7 +55,7 @@ if(isset($_POST['login'])&&!empty($_POST['login'])){
             </div>
           <br>
 
-          <button class="btn btn-theme btn-block" type="submit" name="login"><i class="fa fa-lock"></i>  LOGIN</button>
+          <button class="btn btn-theme btn-block" type="submit" name="submit"><i class="fa fa-lock"></i>  LOGIN</button>
           <hr>
 
           <div class="registration">
