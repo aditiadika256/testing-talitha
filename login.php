@@ -10,14 +10,14 @@ if(isset($_POST['submit'])&&!empty($_POST['submit'])){
     $data = pg_query($dbconn,$sql); 
     $login_check = pg_num_rows($data);
     if($login_check > 0){ 
-        
-        $_SESSION['user']=$username;
-        echo "<script> location= 'indexnelayan.php'; </script>";  
-    }else{
-        
         echo "<script>
         alert('Username atau password salah');
         </script>";
+         
+    }else{
+        $_SESSION['user']=$username;
+        echo "<script> location= 'indexnelayan.php'; </script>"; 
+        
     }
 }
 
