@@ -39,35 +39,28 @@ if(isset($_POST['submit'])&&!empty($_POST['submit'])){
  
   <div id="login-page">
     <div class="container">
-      <form class="form-login">
-        <h2 class="form-login-heading">Login Sekarang</h2>
+        
+  <form method="post">
+  
+     
+    <div class="form-group">
+      <label for="username">Username:</label>
+      <input type="text" class="form-control" id="username" placeholder="Enter username" name="username">
+    </div>
+    
+     
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
+    </div>
+     
+    <input type="submit" name="submit" class="btn btn-primary" value="Submit">
 
-
-        <div class="login-wrap" method="post">
-          <div class="form-group">
-            <label for="username">Username : </label>
-            <input type="text" name="username" class="form-control" id="username"  placeholder="Masukkan Username">
-          </div>
-
-          <div class="form-group">
-              <label for="password">Password : </label>
-              <input type="password" name="password" class="form-control" id="password" placeholder="Masukkan Password">
-            </div>
-          <br>
-
-          <input type="submit" name="submit" class="btn btn-primary" value="Login">
-          <hr>
-
-          <div class="registration">
-            Belum punya akun?<br/>
-            <a class="" href=registrasi.php>
-              Buat akun anda
-              </a>
-          </div>
-         
-        </div>
-
-      </form>
+    <div class="form-group">
+    <a href="registration.php">Click here to register</a>
+    </div>
+  </form>
+        
     </div>
   </div>
  
