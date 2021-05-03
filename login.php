@@ -44,10 +44,6 @@ if(isset($_POST['login'])&&!empty($_POST['login'])){
       <form class="form-login" action="" method="post">
         <h2 class="form-login-heading">Login Sekarang</h2>
 
-          <?php //if(isset($error)): ?>
-
-            <p style ="color:red; font-style: italic; margin-left: 20px; margin-top: 25px; margin-bottom: 5px;">Username/Password Salah</p>
-          <?php //endif; ?>
 
         <div class="login-wrap">
           <div class="form-group">
