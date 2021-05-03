@@ -9,9 +9,7 @@ if(isset($_POST['login'])&&!empty($_POST['login'])){
     $login_check = pg_num_rows($data);
     if($login_check > 0){ 
         $_SESSION['mahasiswa']=$username;
-        echo "<script> 
-        alert('Username benar');
-        </script>";
+        echo "<script> location= 'about.php'; </script>";
          
     }
     else{
