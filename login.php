@@ -10,7 +10,7 @@ if(isset($_POST['login'])&&!empty($_POST['login'])){
     $data = pg_query($conn,$sql); 
     $login_check = pg_num_rows($data);
     if($login_check > 0){ 
-        $_SESSION['user']=$username;
+        $_SESSION['mahasiswa']=$username;
         echo "<script> location= 'indexnelayan.php'; </script>";
          
     }else{
