@@ -7,16 +7,16 @@ if(isset($_POST['submit'])&&!empty($_POST['submit'])){
     $username = $_POST['username'];
     $hashpassword = md5($_POST['password']);
     $sql ="select *from public.mahasiswa where username = '".pg_escape_string($_POST['username'])."' and password ='".$hashpassword."'";
-    $data = pg_query($dbconn,$sql); 
+    $data = pg_query($conn,$sql); 
     $login_check = pg_num_rows($data);
     if($login_check > 0){ 
+        $_SESSION['user']=$username;
+        echo "<script> location= 'indexnelayan.php'; </script>";
+         
+    }else{
         echo "<script>
         alert('Username atau password salah');
         </script>";
-         
-    }else{
-        $_SESSION['user']=$username;
-        echo "<script> location= 'indexnelayan.php'; </script>"; 
         
     }
 }
