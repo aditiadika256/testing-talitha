@@ -2,7 +2,7 @@
 require('connection.php');
 session_start();
 if(isset($_POST['submit'])&&!empty($_POST['submit'])){
-    $email = $_POST['email'];
+    $usernama = $_POST['username'];
     $hashpassword = md5($_POST['pwd']);
     $sql ="select *from public.mahasiswa where username = '".pg_escape_string($_POST['username'])."' and password ='".$hashpassword."'";
     $data = pg_query($dbconn,$sql); 
