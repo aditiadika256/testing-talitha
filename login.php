@@ -1,19 +1,18 @@
-
 <?php
-
 require 'connection.php';
 session_start();
 if(isset($_POST['login'])&&!empty($_POST['login'])){
     $username = $_POST['username'];
     $hashpassword = md5($_POST['password']);
-    $sql ="select *from mahasiswa where username = '".pg_escape_string($_POST['username'])."' and password ='".$hashpassword."'";
+    $sql ="select *from mahasiswa where username = $username and password ='".$hashpassword."'";
     $data = pg_query($conn,$sql); 
     $login_check = pg_num_rows($data);
     if($login_check > 0){ 
-        $_SESSION['mahasiswa']=$nim;
+        $_SESSION['mahasiswa']=$username;
         echo "<script> location= 'indexnelayan.php'; </script>";
          
-    }else{
+    }
+    else{
         echo "<script>
         alert('Username atau password salah');
         </script>";
