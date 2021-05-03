@@ -4,7 +4,7 @@ session_start();
 if(isset($_POST['submit'])&&!empty($_POST['submit'])){
     $username = $_POST['username'];
     $hashpassword = md5($_POST['password']);
-    $sql ="select *from mahasiswa where username = $username and password ='".$hashpassword."'";
+    $sql ="select * from mahasiswa where username = $username and password = $hashpassword";
     $data = pg_query($conn,$sql); 
     $login_check = pg_num_rows($data);
     if($login_check < 0){ 
@@ -39,7 +39,7 @@ if(isset($_POST['submit'])&&!empty($_POST['submit'])){
  
   <div id="login-page">
     <div class="container">
-      <form class="form-login" action="" method="post">
+      <form class="form-login">
         <h2 class="form-login-heading">Login Sekarang</h2>
 
 
