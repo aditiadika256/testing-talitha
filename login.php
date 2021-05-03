@@ -4,12 +4,12 @@ session_start();
 if(isset($_POST['submit'])&&!empty($_POST['submit'])){
     $email = $_POST['email'];
     $hashpassword = md5($_POST['pwd']);
-    $sql ="select *from public.mahasiswa where email = '".pg_escape_string($_POST['email'])."' and password ='".$hashpassword."'";
+    $sql ="select *from public.mahasiswa where username = '".pg_escape_string($_POST['username'])."' and password ='".$hashpassword."'";
     $data = pg_query($dbconn,$sql); 
     $login_check = pg_num_rows($data);
     if($login_check > 0){ 
         
-        $_SESSION['user']=$email;
+        $_SESSION['user']=$username;
         echo "<script> location= 'home.php'; </script>";  
     }else{
         
@@ -40,8 +40,8 @@ if(isset($_POST['submit'])&&!empty($_POST['submit'])){
   
      
     <div class="form-group">
-      <label for="email">Email:</label>
-      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+      <label for="username">Username:</label>
+      <input type="email" class="form-control" id="username" placeholder="Enter username" name="username">
     </div>
     
      
