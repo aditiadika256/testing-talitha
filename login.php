@@ -3,7 +3,7 @@
 
 require 'connection.php';
 session_start();
-if(isset($_POST['submit'])&&!empty($_POST['submit'])){
+if(isset($_POST['login'])&&!empty($_POST['login'])){
     $username = $_POST['username'];
     $hashpassword = md5($_POST['password']);
     $sql ="select *from public.mahasiswa where username = '".pg_escape_string($_POST['username'])."' and password ='".$hashpassword."'";
