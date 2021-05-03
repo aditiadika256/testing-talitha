@@ -1,5 +1,5 @@
 <?php 
-require('conn.php');
+require('connection.php');
 session_start();
 if(isset($_POST['submit'])&&!empty($_POST['submit'])){
     $email = $_POST['email'];
