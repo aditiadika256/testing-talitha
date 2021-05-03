@@ -4,16 +4,16 @@ session_start();
 if(isset($_POST['submit'])&&!empty($_POST['submit'])){
     $username = $_POST['username'];
     $hashpassword = md5($_POST['password']);
-    $sql ="select * from mahasiswa where username = $username and password = $hashpassword";
+    $sql ="select * from mahasiswa where username = $username and password ='".$hashpassword."'";
     $data = pg_query($conn,$sql); 
     $login_check = pg_num_rows($data);
-    if($login_check < 0){ 
-        echo "Username password salah";
+    if($login_check > 0){ 
+        $_SESSION['mahasiswa']=$username;
+        echo "Username password benar";
          
     }
     else{
-        $_SESSION['mahasiswa']=$username;
-        echo "Username password benar";
+        echo "Username password salah";
         
     }
 }
@@ -43,7 +43,7 @@ if(isset($_POST['submit'])&&!empty($_POST['submit'])){
         <h2 class="form-login-heading">Login Sekarang</h2>
 
 
-        <div class="login-wrap">
+        <div class="login-wrap" method="post">
           <div class="form-group">
             <label for="username">Username : </label>
             <input type="text" name="username" class="form-control" id="username"  placeholder="Masukkan Username">
@@ -55,7 +55,7 @@ if(isset($_POST['submit'])&&!empty($_POST['submit'])){
             </div>
           <br>
 
-          <input type="submit" name="submit" class="btn btn-primary" value="Submit">
+          <input type="submit" name="submit" class="btn btn-primary" value="Login">
           <hr>
 
           <div class="registration">
